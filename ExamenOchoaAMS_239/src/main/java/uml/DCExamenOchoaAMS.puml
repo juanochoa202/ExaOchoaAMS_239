@@ -1,0 +1,20 @@
+@startuml
+
+class Administrador{
+    -correo:String
+    -nombre:String
+    -contrasenia:String
+    ---
+    +getCorreo():String
+    +getNombre():String
+}
+
+class Estudiante{
+    -nombre:String
+    -numeroDeCuenta:String
+    -materiasInscritas:Lista
+    
+}
+
+
+@enduml

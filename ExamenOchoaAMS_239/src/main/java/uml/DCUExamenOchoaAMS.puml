@@ -1,0 +1,21 @@
+@startuml
+
+left to right direction
+
+actor "Personal académico" as Personal
+
+rectangle "Sistema de deteccion de deserción escolar" {
+    usecase "Iniciar sesión" as UC1
+    usecase "Buscar estudiantes" as UC2
+    usecase "Revisar información del estudiante" as UC3
+    usecase "Revisar asistencias" as UC4
+    usecase "Determinar riesgo de deserción" as UC5
+
+    Personal -- UC1
+    Personal -- UC2
+    Personal -- UC3
+
+    UC3 .> UC5 : <<include>>
+    UC5 .> UC4 : <<include>>
+}
+@enduml
