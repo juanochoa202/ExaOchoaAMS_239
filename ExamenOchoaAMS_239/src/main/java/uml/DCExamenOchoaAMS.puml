@@ -1,20 +1,62 @@
 @startuml
 
-class Administrador{
-    -correo:String
+class Persona{
     -nombre:String
-    -contrasenia:String
     ---
-    +getCorreo():String
     +getNombre():String
 }
 
+class PersonalAcademico{
+    -correo:String
+    -contrasenia:String
+    ---
+    +getCorreo():String
+}
+
 class Estudiante{
-    -nombre:String
     -numeroDeCuenta:String
-    -materiasInscritas:Lista
+    -materiasInscritas:Lista<Materia>
+    -anioIngreso:String
+    -materiasAprobadas: Lista<Materia>
+    ---
+    +getNumeroCuenta():String
+    +getMateriasInscritas():Lista<Materia>
+    +getAnioIngreso():String
+    +getMateriasAprobadas():Lista<Materia>
+    +getNumeroMateriasInscritas():int
+    +getNumeroMateriasAprobadas():int
+    +getEstadoRiesgo():String
+}
+
+class Materia {
+    -nombre:String
+    -semestre:String
+    -listaDeInscripciones: Lista<Inscripcion>
+    -nombreProfesor:String
+    -plantel:String
+    -grupo:String
+    ---
+    +getNombre():String
+    +getSemestre():String
+    +getListaDeInscripciones():Lista<Inscripcion>
+    +getNombreProfesor():String
+    +getPlantel():String
+    +getGrupo():String
+}
+
+class Inscripcion{
+    -estudiante:Estudiante
+    -asistencias: Map<String, boolean>
+    ---
+    +getEstudiante():Estudiante
+    +getAsistencias():Map<String, boolean>
     
 }
 
+Persona <|-- PersonalAcademico
+Persona <|-- Estudiante
+
+Estudiante "1" -- "0..*" Inscripcion
+Materia "1" -- "0..*" Inscripcion
 
 @enduml
