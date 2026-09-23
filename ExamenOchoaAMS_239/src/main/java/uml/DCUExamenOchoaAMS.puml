@@ -4,7 +4,7 @@ left to right direction
 
 actor "Personal académico" as Personal
 
-rectangle "Sistema de deteccion de deserción escolar" {
+rectangle "Sistema de detección de deserción escolar" {
     usecase "Iniciar sesión" as UC1
     usecase "Buscar estudiantes" as UC2
     usecase "Revisar información del estudiante" as UC3
